@@ -18,18 +18,18 @@ class SevenWonders : AppCompatActivity() {
 
         val intent = intent
 
-        lateinit var choosenWonder: Wonder
+        lateinit var chosenWonder: Wonder
 
         if (Build.VERSION.SDK_INT >=33){
-            choosenWonder = intent.getSerializableExtra("wonder",Wonder::class.java)!!
+            chosenWonder = intent.getSerializableExtra("wonder",Wonder::class.java)!!
         }
         else{
-            choosenWonder = intent.getSerializableExtra("wonder")!! as Wonder
+            chosenWonder = intent.getSerializableExtra("wonder")!! as Wonder
         }
 
-        binding.imageView.setImageResource(choosenWonder.image)
-        binding.textView.text = choosenWonder.placeName
-        binding.textView2.text = choosenWonder.cityName
-        binding.textView3.text = choosenWonder.info
+        binding.imageView.setImageResource(chosenWonder.image)
+        binding.textView.text = chosenWonder.placeName
+        binding.textView2.text = chosenWonder.cityName
+        binding.textView3.text = chosenWonder.info
     }
 }
