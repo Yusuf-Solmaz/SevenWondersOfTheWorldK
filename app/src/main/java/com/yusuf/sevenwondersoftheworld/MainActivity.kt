@@ -7,7 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.yusuf.sevenwondersoftheworld.adapter.WonderAdapter
 import com.yusuf.sevenwondersoftheworld.databinding.ActivityMainBinding
 
-
+//Değişkeni static yapmak için classın dışında tanımlarız.
+//var myStaticVar = "Static Variable"
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
