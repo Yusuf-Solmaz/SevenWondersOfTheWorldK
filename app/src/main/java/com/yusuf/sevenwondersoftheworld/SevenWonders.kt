@@ -2,17 +2,17 @@ package com.yusuf.sevenwondersoftheworld
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.yusuf.sevenwondersoftheworld.databinding.ActivityMainBinding
+import com.yusuf.sevenwondersoftheworld.databinding.ActivitySevenWondersBinding
 
-class MainActivity : AppCompatActivity() {
+class SevenWonders : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
+    private lateinit var binding: ActivitySevenWondersBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivitySevenWondersBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
 
     }
 }
