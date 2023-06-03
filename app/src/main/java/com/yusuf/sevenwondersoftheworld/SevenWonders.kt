@@ -1,5 +1,6 @@
 package com.yusuf.sevenwondersoftheworld
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.yusuf.sevenwondersoftheworld.databinding.ActivitySevenWondersBinding
@@ -7,6 +8,7 @@ import com.yusuf.sevenwondersoftheworld.databinding.ActivitySevenWondersBinding
 class SevenWonders : AppCompatActivity() {
 
     private lateinit var binding: ActivitySevenWondersBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -16,7 +18,14 @@ class SevenWonders : AppCompatActivity() {
 
         val intent = intent
 
-        val choosenWonder = intent.getSerializableExtra("wonder") as Wonder
+        lateinit var choosenWonder: Wonder
+
+        if (Build.VERSION.SDK_INT >=33){
+            choosenWonder = intent.getSerializableExtra("wonder",Wonder::class.java)!!
+        }
+        else{
+            choosenWonder = intent.getSerializableExtra("wonder")!! as Wonder
+        }
 
         binding.imageView.setImageResource(choosenWonder.image)
         binding.textView.text = choosenWonder.placeName
