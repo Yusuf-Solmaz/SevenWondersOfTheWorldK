@@ -1,7 +1,10 @@
 package com.yusuf.sevenwondersoftheworld
 
 import android.os.Bundle
+import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.yusuf.sevenwondersoftheworld.adapter.WonderAdapter
 import com.yusuf.sevenwondersoftheworld.databinding.ActivityMainBinding
 
 
@@ -24,12 +27,15 @@ class MainActivity : AppCompatActivity() {
     var tajMahalInfo =
         "This mausoleum complex in Agra, India, is regarded as one of the world’s most iconic monuments and is perhaps the finest example of Mughal architecture. It was built by Emperor Shah Jahān (reigned 1628–58) to honor his wife Mumtāz Maḥal (“Chosen One of the Palace”), who died in 1631 giving birth to their 14th child."
 
-    lateinit var sevenWonders: ArrayList<Wonder>
+    lateinit var sevenWonderList: ArrayList<Wonder>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+
+        sevenWonderList = ArrayList<Wonder>()
 
         val colosseum = Wonder("Colosseum", "Italy", colosseumInfo,R.drawable.chichen)
         val greatWall =
@@ -42,13 +48,18 @@ class MainActivity : AppCompatActivity() {
             Wonder("Christ the Redeemer", "Brazil", christTheRedeemerInfo, R.drawable.christ)
         val tajMahal = Wonder("Taj Mahal", "India", tajMahalInfo, R.drawable.tajmahal)
 
-        sevenWonders.add(colosseum)
-        sevenWonders.add(greatWall)
-        sevenWonders.add(chichen)
-        sevenWonders.add(petra)
-        sevenWonders.add(machuPicchu)
-        sevenWonders.add(christTheRedeemer)
-        sevenWonders.add(tajMahal)
+        sevenWonderList.add(colosseum)
+        sevenWonderList.add(greatWall)
+        sevenWonderList.add(chichen)
+        sevenWonderList.add(petra)
+        sevenWonderList.add(machuPicchu)
+        sevenWonderList.add(christTheRedeemer)
+        sevenWonderList.add(tajMahal)
+
+
+        binding.recyclerView.layoutManager = LinearLayoutManager(this);
+        val adapter = WonderAdapter(sevenWonderList)
+        binding.recyclerView.adapter = adapter
 
 
     }

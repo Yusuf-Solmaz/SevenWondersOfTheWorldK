@@ -14,5 +14,13 @@ class SevenWonders : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        val intent = intent
+
+        val choosenWonder = intent.getSerializableExtra("wonder") as Wonder
+
+        binding.imageView.setImageResource(choosenWonder.image)
+        binding.textView.text = choosenWonder.placeName
+        binding.textView2.text = choosenWonder.cityName
+        binding.textView3.text = choosenWonder.info
     }
 }
